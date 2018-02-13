@@ -1,0 +1,4 @@
+docopt
+pyyaml
+django-ucamlookup
+requests
