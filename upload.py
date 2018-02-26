@@ -64,9 +64,9 @@ def process_documents(session, endpoint, docs):
         try:
             r.raise_for_status()
         except requests.HTTPError:
-            LOG.error('Saving asset failed: %s', r.json())
+            LOG.error('Saving asset failed: %s', r.content)
             LOG.error('Original asset: %s', asset)
-            report['error'] = r.json()
+            report['error'] = r.content
             yield report
             continue
 
