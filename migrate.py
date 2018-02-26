@@ -4,7 +4,8 @@ Migrate old IAR spreadsheet to new format
 
 Usage:
     migrate.py (-h | --help)
-    migrate.py [--verbose] [--skip-rows=NUM] [--skip-cols=NUM] [--output=FILE] [<csv>]
+    migrate.py [--verbose] [--skip-rows=NUM] [--skip-cols=NUM] [--output=FILE]
+        [--fixups=FILE] [<csv>]
 
 Options:
 
@@ -15,6 +16,8 @@ Options:
 
     --skip-rows=NUM         Number of rows to skip in input CSV. [default: 6]
     --skip-cols=NUM         Number of initial columns to skip in input CSV. [default: 1]
+
+    --fixups=FILE           Load fixups from file
 
 """
 import csv
@@ -39,8 +42,15 @@ class Context:
 
         self.cli_opts = cli_opts
         self.departments = set()
+        self.fixups = {
+            'institutions': []
+        }
 
     def resolve_institution(self, inst_name):
+        for record in self.fixups['institutions']:
+            if record['original'] == inst_name:
+                return record['instid']
+
         if inst_name in self._cached_insts:
             return self._cached_insts[inst_name]
 
@@ -78,6 +88,10 @@ def main():
     logging.basicConfig(level=logging.INFO if opts['--verbose'] else logging.WARN)
 
     context = Context(cli_opts=opts)
+
+    if opts['--fixups'] is not None:
+        with open_from_opt(opts['--fixups']) as fixups:
+            context.fixups.update(yaml.load(fixups))
 
     with open_from_opt(opts['<csv>']) as infile, open_from_opt(opts['--output'], 'w') as outfile:
         in_reader = csv.reader(infile)
