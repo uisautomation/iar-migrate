@@ -64,8 +64,9 @@ Once the asset documents are prepared, they may be uploaded *en mass* via the
 ``upload.py`` script:
 
 ```console
-$ ./upload.py --output=upload-report.yaml assets.yaml
+$ ./upload.py --output=upload-report.yaml http://iar.invalid/assets/ assets.yaml
 ```
+replacing "http://iar.invalid/assets/" with the appropriate URL for the assets endpoint. **IMPORTANT:** the trailing slash is required.
 
 The upload script generates a file with one YAML document per upload of the
 following form:
