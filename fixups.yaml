@@ -7,3 +7,43 @@ institutions:
     instid: AD
   - original: Cambridge University Development and Alumni Relations (CUDAR)
     instid: UDU
+  - original: AHA
+    instid: ART
+  - original: Applied Mathematics & Theoretical Physics
+    instid: DAMPT
+  - original: Arts & Hums School
+    instid: SARHU
+  - original: Astronomy
+    instid: IOA
+  - original: Biological Anthropology
+    instid: ARCHANT
+  - original: Biological Sciences School
+    instid: SBIOS
+  - original: CIMR
+    instid: CIMR
+  - original: CRASSH
+    instid: CRASSH
+  - original: Chemical Engineering & Biotechnology
+    instid: CEB
+  - original: Clinical School Office
+    instid: CLINMED
+  - original: Computer Laboratory
+    instid: CL
+  - original: Department of Veterinary Medicine
+    instid: CVM
+  - original: Institute for Sustainable Research
+    instid: CPI
+  - original: MML
+    instid: MML
+  - original: Mongolia & Inner Asia Studies Unit
+    instid: SOCANTH
+  - original: Museum of Zoology
+    instid: ZOO
+  - original: Wellcome Trust for Stem Cell Research
+    instid: STEM
+  - original: 'Wellcome Trust: Gurdon Institute'
+    instid: WELLC
+  - original: Whipple Museum
+    instid: HPS
+  - original: Cambridge Trusts
+    instid: CCT

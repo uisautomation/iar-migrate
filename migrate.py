@@ -60,7 +60,7 @@ class Context:
 
         # Look for foo, Department of foo and Faculty of foo from a simple entry of "foo". An exact
         # match always wins. A single approximate match wins.
-        for prefix in ['', 'Department of ', 'Faculty of ']:
+        for prefix in ['', 'Department of ', 'Faculty of ', 'Office of ']:
             search = prefix + inst_name
             matches = im.search(search, approxMatches=True)
 
@@ -175,7 +175,7 @@ def migrate_row(index, row, context):
     # Perform easy migration to initialise asset
     asset = {
         'id': asset_id,
-        'name': original['name'], 'purpose': original['purpose'],
+        'name': original['name'],
         'department': context.resolve_institution(original['faculty_dept_inst']),
         'personal_data': any([to_bool(v) for v in original['personal_data']]),
         'private': any([to_bool(v) for v in [original['animal'], original['animal_s24']]]),
